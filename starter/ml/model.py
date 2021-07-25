@@ -1,3 +1,4 @@
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 
 
@@ -17,8 +18,10 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
+    clf = LogisticRegression(random_state=8)
+    clf.fit(X_train, y_train)
 
-    pass
+    return clf
 
 
 def compute_model_metrics(y, preds):
@@ -40,6 +43,7 @@ def compute_model_metrics(y, preds):
     fbeta = fbeta_score(y, preds, beta=1, zero_division=1)
     precision = precision_score(y, preds, zero_division=1)
     recall = recall_score(y, preds, zero_division=1)
+
     return precision, recall, fbeta
 
 
@@ -57,4 +61,7 @@ def inference(model, X):
     preds : np.array
         Predictions from the model.
     """
-    pass
+
+    preds = model.predict(X)
+
+    return preds
