@@ -2,11 +2,11 @@
 
 For additional information see the Model Card paper: https://arxiv.org/pdf/1810.03993.pdf
 
-Training a logistic classification model to predict the income category of a person based on other personal informations.
+Training a Random Forest classification model to predict the income category of a person based on other personal informations.
 
 ## Model Details
 
-A basic logistic regression classifier imported from scikit-learn library and fit onto the census data
+A basic Random Forest classifier imported from scikit-learn library and fit onto the census data
 
 ## Intended Use
 
@@ -26,9 +26,9 @@ Evaluation data is splitted from the training set itself. The split was done in 
 
 Metrices to evaluate the model performance were:
 
-- Precision
-- Recall
-- F-beta score
+- Precision (=0.7954768928220256)
+- Recall (=0.5239637305699482)
+- F-beta score (=0.6317844591956268)
 
 ## Ethical Considerations
 

@@ -1,4 +1,6 @@
 from sklearn.linear_model import LogisticRegression
+from sklearn.svm import LinearSVC
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import fbeta_score, precision_score, recall_score
 
 
@@ -18,7 +20,10 @@ def train_model(X_train, y_train):
     model
         Trained machine learning model.
     """
-    clf = LogisticRegression(random_state=8)
+    # clf = LogisticRegression(random_state=8)
+    # clf = LinearSVC(random_state=8)
+    clf = RandomForestClassifier(
+        random_state=8, max_depth=10, n_estimators=128)
     clf.fit(X_train, y_train)
 
     return clf
