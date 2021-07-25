@@ -35,7 +35,7 @@ def trainer(train_data, model_path, cat_features, label_column='income'):
     joblib.dump((model, encoder, lb), model_path)
 
 
-def model_inference(test_data, model_path, cat_features, label_column='income'):
+def batch_inference(test_data, model_path, cat_features, label_column='income'):
     # load the model from `model_path`
     model, encoder, lb = joblib.load(model_path)
 
