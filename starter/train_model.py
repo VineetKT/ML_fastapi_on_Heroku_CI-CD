@@ -1,4 +1,5 @@
 # Script to train machine learning model.
+import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.utils.class_weight import compute_class_weight
@@ -56,3 +57,29 @@ def model_inference(test_data, model_path, cat_features, label_column='income'):
     print('F-beta score:\t', fbeta)
 
     return precision, recall, fbeta
+
+
+def online_inference(row_dict, model_path, cat_features):
+    # load the model from `model_path`
+    model, encoder, lb = joblib.load(model_path)
+
+    row_transformed = list()
+    X_categorical = list()
+    X_continuous = list()
+
+    for key, value in row_dict.items():
+        mod_key = key.replace('_', '-')
+        if mod_key in cat_features:
+            X_categorical.append(value)
+        else:
+            X_continuous.append(value)
+
+    y_cat = encoder.transform([X_categorical])
+    y_conts = np.asarray([X_continuous])
+
+    row_transformed = np.concatenate([y_conts, y_cat], axis=1)
+
+    # get inference from model
+    preds = inference(model=model, X=row_transformed)
+
+    return '>50K' if preds[0] else '<=50K'
