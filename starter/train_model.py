@@ -51,3 +51,5 @@ def trainer(data_path):
     print('Precision:\t', precision)
     print('Recall:\t', recall)
     print('F-beta score:\t', fbeta)
+
+    return model
