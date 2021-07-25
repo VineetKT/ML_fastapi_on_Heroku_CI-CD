@@ -14,22 +14,22 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
+
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.8.10
-          
+
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world!
 
       - name: Install dependencies
         run: |
-          /opt/hostedtoolcache/Python/3.8.10/x64/bin/python -m pip install --upgrade pip
-          pip install flake8 pytest
+          python -m pip install --upgrade --user pip
+          pip install -u flake8 pytest
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
       - name: Lint with flake8
@@ -42,7 +42,7 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
-          
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
