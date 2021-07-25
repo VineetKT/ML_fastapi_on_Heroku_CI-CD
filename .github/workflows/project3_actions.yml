@@ -51,6 +51,9 @@ jobs:
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }} # if you have/need it
           aws-region: us-east-1
 
-      - name: Setup DVC and dvc pull
+      - name: Setup DVC
         uses: iterative/setup-dvc@v1
-        run: dvc pull
+
+      - name: pull from dvc
+        run: |
+          dvc pull
