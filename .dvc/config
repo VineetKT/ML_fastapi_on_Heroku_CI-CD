@@ -1,0 +1,4 @@
+[core]
+    remote = project3remote
+['remote "project3remote"']
+    url = s3://project3-bucket-abcd/data
