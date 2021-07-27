@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 # BaseModel from Pydantic is used to define data objects.
 from pydantic import BaseModel
+
 from starter.train_model import online_inference
 
 app = FastAPI()
@@ -43,7 +44,7 @@ def home():
 @app.post('/inference')
 async def predict_income(inputrow: RowData):
     row_dict = jsonable_encoder(inputrow)
-    model_path = 'model/rf_model_20210725-180330'
+    model_path = 'model/rf_model_20210727-113146'
     prediction = online_inference(row_dict, model_path, CAT_FEATURES)
 
     return {"income class": prediction}

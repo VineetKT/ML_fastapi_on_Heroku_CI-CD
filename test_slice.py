@@ -24,17 +24,17 @@ def create_data_slice(data_path, col_to_slice, value_to_replace=None):
 
 
 if __name__ == '__main__':
-    col_to_slice = 'education'
-    value_to_replace = 'HS-grad'  # ['Bachelors, 'Masters', 'HS-grad']
+    col_to_slice = 'race'
+    value_to_replace = 'White'  # ['Bachelors, 'Masters', 'HS-grad']
 
     print("performance on sliced column\t", col_to_slice, value_to_replace)
     sliced_data = create_data_slice(
         'data/cleaned_data.csv', col_to_slice, value_to_replace)
 
     precision, recall, fbeta = batch_inference(
-        sliced_data, "model/rf_model_20210725-180330", CAT_FEATURES)
+        sliced_data, "model/rf_model_20210727-113146", CAT_FEATURES)
 
     with open('slice_output.txt', 'a') as f:
-        result = f"\n{'-'*50}\nperformance on sliced column -- {col_to_slice} -- {value_to_replace}\n{'-'*50} \
-            \nPrecision:\t{precision}\nRecall:\t{recall}\nF-beta score:\t{fbeta}\n"
+        result = f"""\n{'-'*50}\nperformance on sliced column -- {col_to_slice} -- {value_to_replace}\n{'-'*50} \
+            \nPrecision:\t{precision}\nRecall:\t{recall}\nF-beta score:\t{fbeta}\n"""
         f.write(result)

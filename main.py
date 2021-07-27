@@ -18,7 +18,7 @@ CAT_FEATURES = [
 
 if __name__ == '__main__':
     data_path = 'data/cleaned_data.csv'
-    # model_path = 'model/rf_model_20210725-180330'
+    # model_path = 'model/rf_model_20210727-113146'
     model_path = f'model/rf_model_{time.strftime("%Y%m%d-%H%M%S")}'
     print(model_path)
 
