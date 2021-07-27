@@ -19,7 +19,9 @@ row = {
 
 # response = requests.get('https://vin-project3-app.herokuapp.com/')
 response = requests.post(
-    'https://vin-project3-app.herokuapp.com/inference', json=row)
+    url='https://vin-project3-app.herokuapp.com/inference',
+    json=row
+)
 
 print(response.status_code)
 print(response.json())
