@@ -16,7 +16,7 @@ row = {
     "hours_per_week": 60,
     "native_country": "Honduras"
 }
-response = requests.post('http://127.0.0.1:8000/inference', json=row)
+response = requests.post('https://vin-project3-app.herokuapp.com/', json=row)
 
 print(response.status_code)
 print(response.json())
