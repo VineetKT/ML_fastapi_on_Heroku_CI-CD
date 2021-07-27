@@ -11,6 +11,8 @@ Training a Random Forest classification model to predict the income category of 
 
 ## Repositories
 
+[Link to the project repo](https://github.com/VineetKT/project3-ML-FastAPI-Heroku)
+
 ## Data
 
 The training data is the census data available at the UCI library. It is the adult.income data from the data folder.
@@ -34,9 +36,14 @@ Refer to the - [model card](https://github.com/VineetKT/project3-ML-FastAPI-Hero
 
 The model versioning was tracked using `dvc`.
 <br />
-Also, the performance of the model was evaluated on a slice of data. The results are stored in the `slice_output.txt` for slices done on _education_ and _race_.
+Also, the performance of the model was evaluated on a slice of data ([code](https://github.com/VineetKT/project3-ML-FastAPI-Heroku/blob/main/test_slice.py)). The results are stored in the `slice_output.txt` for slices done on _education_ and _race_.
 <br />
 <br />
+To run the model trainer, evaluation code ([link](https://github.com/VineetKT/project3-ML-FastAPI-Heroku/blob/main/main.py)):
+
+```
+python main.py
+```
 
 ## Github action
 
@@ -53,6 +60,7 @@ pytest test/ -vv
 ## API Creation
 
 A `FastAPI` framework was developed for the inference API using the input type-hints example from `pydantic` library
+The API main file is the [inference_api.py](https://github.com/VineetKT/project3-ML-FastAPI-Heroku/blob/main/inference_api.py)
 
 ## API Deployment
 
