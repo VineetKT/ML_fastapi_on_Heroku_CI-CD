@@ -16,7 +16,13 @@ row = {
     "hours_per_week": 60,
     "native_country": "Honduras"
 }
-response = requests.post('http://127.0.0.1:8000/inference', json=row)
+
+# https://git.heroku.com/quiet-bayou-25995.git
+heroku_endpoint = 'https://quiet-bayou-25995.herokuapp.com/'
+localhost_endpoint = 'http://127.0.0.1:8000/'
+
+response = requests.get(localhost_endpoint)
+# response = requests.post(heroku_endpoint, json=row)
 
 print(response.status_code)
 print(response.json())
