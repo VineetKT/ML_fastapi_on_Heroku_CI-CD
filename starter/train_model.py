@@ -2,7 +2,6 @@
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.utils.class_weight import compute_class_weight
 
 # Add the necessary imports for the starter code.
 from .ml.data import process_data
