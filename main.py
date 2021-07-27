@@ -2,7 +2,6 @@
 """
 
 from starter.train_model import trainer, get_data, batch_inference
-import time
 
 
 CAT_FEATURES = [
@@ -18,8 +17,7 @@ CAT_FEATURES = [
 
 if __name__ == '__main__':
     data_path = 'data/cleaned_data.csv'
-    # model_path = 'model/rf_model_20210727-113146'
-    model_path = f'model/rf_model_{time.strftime("%Y%m%d-%H%M%S")}'
+    model_path = "model/random_forest_model_with_encoder_and_lb.pkl"
     print(model_path)
 
     train_data, test_data = get_data(data_path)

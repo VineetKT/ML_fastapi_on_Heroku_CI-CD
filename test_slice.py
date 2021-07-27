@@ -25,14 +25,14 @@ def create_data_slice(data_path, col_to_slice, value_to_replace=None):
 
 if __name__ == '__main__':
     col_to_slice = 'race'
-    value_to_replace = 'White'  # ['Bachelors, 'Masters', 'HS-grad']
+    value_to_replace = 'Black'  # ['Bachelors, 'Masters', 'HS-grad']
 
     print("performance on sliced column\t", col_to_slice, value_to_replace)
     sliced_data = create_data_slice(
         'data/cleaned_data.csv', col_to_slice, value_to_replace)
 
     precision, recall, fbeta = batch_inference(
-        sliced_data, "model/rf_model_20210727-113146", CAT_FEATURES)
+        sliced_data, "model/random_forest_model_with_encoder_and_lb.pkl", CAT_FEATURES)
 
     with open('slice_output.txt', 'a') as f:
         result = f"""\n{'-'*50}\nperformance on sliced column -- {col_to_slice} -- {value_to_replace}\n{'-'*50} \

@@ -42,9 +42,8 @@ if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system('rm -rf .dvc/cache')
     os.system('rm -rf .dvc/tmp/lock')
     os.system('dvc config core.hardlink_lock true')
-    os.system("dvc pull")
-    # if os.system("dvc pull -q") != 0:
-    #     exit("dvc pull failed")
+    if os.system("dvc pull -q") != 0:
+        exit("dvc pull failed")
     os.system("rm -rf .dvc .apt/usr/lib/dvc")
 
 
@@ -56,7 +55,7 @@ def home():
 @app.post('/inference')
 async def predict_income(inputrow: RowData):
     row_dict = jsonable_encoder(inputrow)
-    model_path = 'model/rf_model_20210727-113146'
+    model_path = 'model/random_forest_model_with_encoder_and_lb.pkl'
     prediction = online_inference(row_dict, model_path, CAT_FEATURES)
 
     return {"income class": prediction}

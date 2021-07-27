@@ -7,6 +7,12 @@ Training a Random Forest classification model to predict the income category of 
 ## Model Details
 
 A basic Random Forest classifier imported from scikit-learn library and fit onto the census data
+Model parameters are(other than default):
+{
+"random_state": 8,
+"max_depth": 16,
+"n_estimators":128
+}
 
 ## Intended Use
 
@@ -26,9 +32,9 @@ Evaluation data is splitted from the training set itself. The split was done in 
 
 Metrices to evaluate the model performance were:
 
-- Precision (=0.7954768928220256)
-- Recall (=0.5239637305699482)
-- F-beta score (=0.6317844591956268)
+- Precision (=0.7867383512544803)
+- Recall (=0.56865284974093272)
+- F-beta score (=0.66015037593984978)
 
 ## Ethical Considerations
 
