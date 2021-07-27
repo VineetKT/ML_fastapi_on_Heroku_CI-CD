@@ -40,7 +40,7 @@ class RowData(BaseModel):
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
     os.system("dvc config core.no_scm true")
     os.system('rm -Rf .dvc/cache')
-    os.system('rm -Rf.dvc/tmp/lock')
+    os.system('rm -Rf .dvc/tmp/lock')
 
     # os.system("dvc pull")
     if os.system("dvc pull") != 0:
