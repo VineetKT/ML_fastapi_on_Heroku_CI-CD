@@ -2,7 +2,7 @@ import os
 from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
 # BaseModel from Pydantic is used to define data objects.
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 from starter.train_model import online_inference
 
@@ -21,20 +21,20 @@ CAT_FEATURES = [
 
 
 class RowData(BaseModel):
-    age: int
-    workclass: str
-    fnlwgt: int
-    education: str
-    education_num: int
-    marital_status: str
-    occupation: str
-    relationship: str
-    race: str
-    sex: str
-    capital_gain: int
-    capital_loss: int
-    hours_per_week: int
-    native_country: str
+    age: int = Field(..., example=32)
+    workclass: str = Field(..., example="Private")
+    fnlwgt: int = Field(..., example=205019)
+    education: str = Field(..., example="Assoc-acdm")
+    education_num: int = Field(..., example=12)
+    marital_status: str = Field(..., example="Never-married")
+    occupation: str = Field(..., example="Sales")
+    relationship: str = Field(..., example="Not-in-family")
+    race: str = Field(..., example="Black")
+    sex: str = Field(..., example="Male")
+    capital_gain: int = Field(..., example=0)
+    capital_loss: int = Field(..., example=0)
+    hours_per_week: int = Field(..., example=50)
+    native_country: str = Field(..., example="United-States")
 
 
 if "DYNO" in os.environ and os.path.isdir(".dvc"):
